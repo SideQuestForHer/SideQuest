@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Side Quest</title>
+  <style>
+    body {
+      background-color: darkgray;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      height: 70px;
+      margin: 0 10px;
+      background-color: white;
+      font-size: 24px;
+      color: black;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    .link {
+      font-size: 24px;
+      color: white;
+      text-decoration: none;
+    }
+    
+
+    .submit {
+      margin-top: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      transition-duration: 0.4s;
+      border-radius: 4px;
+    }
+    
+    .submit:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    function checkPasswordLine1() {
+      var inputs = document.querySelectorAll('.line-1 .box');
+      var password = ['1', '4', '0', '3', '2', '0', '0', '6'];
+
+      var enteredPassword = [];
+      for (var i = 0; i < inputs.length; i++) {
+        enteredPassword.push(inputs[i].value);
+      }
+
+      if (JSON.stringify(enteredPassword) === JSON.stringify(password)) {
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].classList.add('hidden');
+        }
+
+        var link = document.createElement('a');
+        link.href = '1.png';
+        link.download = '1.png';
+        link.classList.add('link');
+        link.innerText = 'Click to download the image.';
+        var row = document.querySelector('.line-1');
+        row.parentNode.replaceChild(link, row);
+      } else {
+        alert('Wrong.');
+      }
+    }
+    
+    function checkPasswordLine2() {
+      var inputs = document.querySelectorAll('.line-2 .box');
+      var password = ['W', 'I', 'N', 'T', 'E', 'R'];
+
+      var enteredPassword = [];
+      for (var i = 0; i < inputs.length; i++) {
+        enteredPassword.push(inputs[i].value.toUpperCase());
+      }
+
+      if (JSON.stringify(enteredPassword) === JSON.stringify(password)) {
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].classList.add('hidden');
+        }
+
+        var link = document.createElement('a');
+        link.href = '2.png';
+        link.download = '2.png';
+        link.classList.add('link');
+        link.innerText = 'Click to download the image.';
+        var row = document.querySelector('.line-2');
+        row.parentNode.replaceChild(link, row);
+      } else {
+        alert('Wrong');
+      }
+    }
+    
+    function checkPasswordLine3() {
+      var inputs = document.querySelectorAll('.line-3 .box');
+      var password = ['M', 'A', 'Y'];
+
+      var enteredPassword = [];
+      for (var i = 0; i < inputs.length; i++) {
+        enteredPassword.push(inputs[i].value.toUpperCase());
+      }
+
+      if (JSON.stringify(enteredPassword) === JSON.stringify(password)) {
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].classList.add('hidden');
+        }
+
+        var link = document.createElement('a');
+        link.href = '3.png';
+        link.download = '3.png';
+        link.classList.add('link');
+        link.innerText = 'Click to download the image.';
+        var row = document.querySelector('.line-3');
+        row.parentNode.replaceChild(link, row);
+      } else {
+        alert('Wrong.');
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row line-1">
+      <span>1. </span>
+      <input type="number" class="box" placeholder="0">
+      <input type="number" class="box" placeholder="0">
+      <input type="number" class="box" placeholder="0">
+      <input type="number" class="box" placeholder="0">
+      <input type="number" class="box" placeholder="0">
+      <input type="number" class="box" placeholder="0">
+      <input type="number" class="box" placeholder="0">
+      <input type="number" class="box" placeholder="0">
+      <button onclick="checkPasswordLine1()" class="submit">Submit</button>
+    </div>
+    <div class="row line-2">
+      <span>2. </span>
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <button onclick="checkPasswordLine2()" class="submit">Submit</button>
+    </div>
+    <div class="row line-3">
+      <span>3. </span>
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <input type="text" class="box" maxlength="1" placeholder="A">
+      <button onclick="checkPasswordLine3()" class="submit">Submit</button>
+    </div>
+  </div>
+</body>
+</html>
